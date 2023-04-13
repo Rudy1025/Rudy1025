@@ -1,22 +1,99 @@
-# This workflow will build and push a node.js application to an Azure Web App when a commit is pushed to your default branch.
-#
-# This workflow assumes you have already created the target Azure App Service web app.
-# For instructions see https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-cli
-#
-# To configure this workflow:
-#
-# 1. Download the Publish Profile for your Azure Web App. You can download this file from the Overview page of your Web App in the Azure Portal.
-#    For more information: https://docs.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel#generate-deployment-credentials
-#
-# 2. Create a secret in your repository named AZURE_WEBAPP_PUBLISH_PROFILE, paste the publish profile contents as the value of the secret.
-#    For instructions on obtaining the publish profile see: https://docs.microsoft.com/azure/app-service/deploy-github-actions#configure-the-github-secret
-#
-# 3. Change the value for the AZURE_WEBAPP_NAME. Optionally, change the AZURE_WEBAPP_PACKAGE_PATH and NODE_VERSION environment variables below.
-#
-# For more information on GitHub Actions for Azure: https://github.com/Azure/Actions
-# For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
 
+
+Marketplace logo
+Marketplace
+Edu Courses
+ThemesPlugin IdeasBuild Plugins
+Sign In
+Plugin Logo
+Programming Language
+Rust
+JetBrains s.r.o.
+Get
+Compatible with all IntelliJ-based IDEs
+Overview
+Versions
+Reviews
+What's New
+Documentation
+Introduction
+Quick start guide
+FAQ
+Language support
+Cargo support
+Project settings
+Building
+Testing
+Debugging
+Debug tool window
+Stepping through
+Memory, Disassembly, Hex views
+Switching debuggers and renderers
+Configuration settings for debug
+Remote debug with GDB/gdbserver (CLion)
+Run targets
+Dynamic analysis
+Rust REPL console
+WASM projects support
+Debugging﻿
+Debugging Rust code is available in CLion, IntelliJ IDEA Ultimate, PyCharm Professional, GoLand, and Rider (version 2022.1 and later).
+In IntelliJ IDEA Ultimate and other IDEs, debugging is available for LLDB only, and it requires the Native Debugging Support plugin. You will also need to install the debugger binaries separately (IntelliJ Rust will prompt you to do that upon starting the first debug session).
+On Windows, you can develop any Rust project in CLion, while in the other IDEs only the projects targeting MSVC ABI are currently supported. Also, debugging for WSL works in CLion only.
+OS
+Debugger backend
+Requirements
+CLion
+macOS / Linux / Windows / WSL
+GDB / LLDB
+-
+IntelliJ IDEA Ultimate, PyCharm Pro, GoLand
+macOS / Linux / Windows (MSVC)
+LLDB
+Native Debugging Support plugin
+Rider (2022.1 and later)
+macOS / Linux / Windows (MSVC)
+LLDB
+-
+In terms of the debugger functionality, core dump debugging and attaching to local processes are only available in CLion and Rider.
+Start a debug session﻿
+Use one of the following options:
+Click the Run icon icon in the left gutter, and then choose App actions start debugger.
+Click the Run button on the toolbar.
+Select Run | Debug 'selected configuration' from the main menu.
+Press Shift+F9.
+Upon the first debug session in IntelliJ IDEA Ultimate, you will be prompted to install the Native Debugging Support plugin and download the debugger binaries. Follow the IDE instructions.
+When you start debugging, the plugin calls cargo test to get the non-optimized binary with debug information, and then launches it under the debugger.
+After you've launched a debug session, the Debug tool window icon (the Debug button) toggles to the Active Debugger icon indicating that the debugging process is active.
+Set breakpoints﻿
+Click the gutter at the executable line of code where you want to set the breakpoint. Alternatively, place the caret at the line and press Ctrl+F8.
+You can view and edit breakpoints in your code via Run | View Breakpoints (Ctrl+Shift+F8), also accessible from a breakpoint's menu (click More):
+/api/webhelp/8182/81b726c8-d2f1-4b47-9449-8d1fd51f48fe/img/rust_breakpoints.png
+Gif
+Break on panic﻿
+When a panic occurs, the debugger stops inside the panic! call automatically. This helps to investigate the stack trace and variable context around the point of panic:
+/api/webhelp/8182/81b726c8-d2f1-4b47-9449-8d1fd51f48fe/img/rust_break_panic.png
+Gif
+Breaking on panics is enabled by default. If you prefer to disable it, go to Settings | Build, Execution, Deployment | Debugger and clear the Break on panic checkbox.
+Breaking on panic option
+Useful debugger shortcuts﻿
+Action
+Shotcut
+Toggle breakpoint
+Ctrl+F8
+Resume program
+F9
+Step over
+F8
+Step into
+F7
+Stop
+Ctrl+F2
+View breakpoint details/all breakpoints
+Ctrl+Shift+F8
+Debug code at caret
+Shift+F9 (within the main method) or Alt+Shift+F9
+External Links
+Debugging Rust code in CLion
 on:
   push:
     branches: [ "main" ]
